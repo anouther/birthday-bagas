@@ -43,9 +43,16 @@
     var i = 0, text; text = "sekali lagi, selamat ulang tahun bagas semoga panjang umur sehat selalu, jangan lupa jajannya yaa hehe, maaf ya bub aku ga punya kado yang bagus buat kamu, aku berharap kamu suka dengan website ini,i love you bagas. ";
     var u = 0, penutup; penutup = "- windy pacar bagas";
 
-    function play() {//Link Audio Bisa Diganti
-      var audio = new Audio('bagas birthday (1).mp3'); audio.play();
-    }
+    function play() {
+  var audio = new Audio('bagas birthday (1).mp3');
+
+  audio.addEventListener('ended', function() {
+    this.currentTime = 0;  // Setel ulang waktu pemutaran ke awal
+    this.play();  // Mainkan lagi
+  }, false);
+
+  audio.play();
+}
 
     //Reaksi
     async function bukaWa() {window.location = "https://t.me/blubwearry"}
